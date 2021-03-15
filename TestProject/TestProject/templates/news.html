@@ -7,18 +7,8 @@
 <h1>This is our latest news page</h1>
 <p>This is our latest news description</p>
 
-{% for name in list %}
-<ul>
-    <li>
-        {{name}}
-    </li>
-</ul>
-{% endfor %}
-
-{% if mynum == 50 %}
-    <h1>Yes, 50 is the number !</h1>
-{% else %}
-    <h1>No, the number is not 50 !</h1>
-{% endif %}
+<h1>{{data.author}}</h1>
+<h2>{{data.title}}</h2>
+<p>{{data.description}}</p>
 
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
+from .models import News as NewsData
 
 # Create your views here.
 
@@ -13,10 +14,13 @@ def Home(request):
 
 
 def News(request):
+
+    obj = NewsData.objects.get(id=1)
+
     context = {
-        "list": ['Paul', 'Caitlin', 'Rory', 'Scruffy', 'Jaws'],
-        "mynum": 150,
+        "data": obj
     }
+
     return render(request, 'news.html', context)
 
 
