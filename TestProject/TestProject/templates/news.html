@@ -5,10 +5,17 @@
 {% block body %}
 
 <h1>This is our latest news page</h1>
-<p>This is our latest news description</p>
+<p>News items for year {{year}}</p>
 
-<h1>{{data.author}}</h1>
-<h2>{{data.title}}</h2>
-<p>{{data.description}}</p>
+{% for news in article_list %}
+
+<h2>{{news.author}}</h2>
+<h1>{{news.title}}</h1>
+<p>{{news.description}}</p>
+<h4>{{news.timestamp}}</h4>
+
+{% endfor %}
+
+
 
 {% endblock %}

@@ -13,12 +13,19 @@ def Home(request):
     return render(request, 'index.html', context)
 
 
-def News(request):
+def News(request, year):
 
     obj = NewsData.objects.get(id=1)
 
     context = {
         "data": obj
+    }
+
+    article_list = NewsData.objects.filter(timestamp__year=year)
+
+    context = {
+        'year': year,
+        'article_list': article_list
     }
 
     return render(request, 'news.html', context)
