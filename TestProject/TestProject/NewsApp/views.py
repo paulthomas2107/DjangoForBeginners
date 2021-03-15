@@ -5,11 +5,19 @@ from django.shortcuts import HttpResponse
 
 
 def Home(request):
-    return render(request, 'index.html')
+    context = {
+        "name": "Paul Thomas",
+        "number": 217662020,
+    }
+    return render(request, 'index.html', context)
 
 
 def News(request):
-    return render(request, 'news.html')
+    context = {
+        "list": ['Paul', 'Caitlin', 'Rory', 'Scruffy', 'Jaws'],
+        "mynum": 150,
+    }
+    return render(request, 'news.html', context)
 
 
 def Contact(request):
