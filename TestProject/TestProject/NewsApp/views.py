@@ -5,6 +5,10 @@ from .models import News as NewsData
 # Create your views here.
 
 
+def register(request):
+    return render(request, 'signup.html')
+
+
 def Home(request):
     context = {
         "name": "Paul Thomas",
