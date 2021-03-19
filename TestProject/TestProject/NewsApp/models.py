@@ -4,6 +4,18 @@ from django.utils import timezone
 # Create your models here.
 
 
+class Article3(models.Model):
+    title = models.CharField(max_length=30)
+    body = models.TextField(max_length=300)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    def ShortenText(self):
+        return self.body[:100]
+
+
 class Place(models.Model):
     name = models.CharField(max_length=30)
     address = models.CharField(max_length=30)
