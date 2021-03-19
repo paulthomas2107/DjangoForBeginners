@@ -1,4 +1,5 @@
 from django import forms
+from .models import RegistrationData
 
 
 class RegistrationForm(forms.Form):
@@ -24,3 +25,17 @@ class RegistrationForm(forms.Form):
                                 'class': 'form-control',
                                 'placeholder': 'Enter phone'
                             }))
+
+
+class RegistrationModal(forms.ModelForm):
+    class Meta:
+        model = RegistrationData
+        fields = [
+            'username',
+            'password',
+            'email',
+            'phone'
+        ]
+
+
+

@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import News as NewsData
-from .forms import RegistrationForm
+from .forms import RegistrationForm, RegistrationModal
 from .models import RegistrationData
 from django.contrib import messages
+
 
 # Create your views here.
 
@@ -55,3 +56,10 @@ def News(request, year):
 
 def Contact(request):
     return render(request, 'contact.html')
+
+
+def modelform(request):
+    context = {
+        "modalform": RegistrationModal
+    }
+    return render(request, 'modalform.html', context)

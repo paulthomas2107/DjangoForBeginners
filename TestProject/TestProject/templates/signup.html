@@ -9,11 +9,11 @@
 
     <ul class = "messages">
         {% for msg in messages %}
-        <il>
+        <li>
             <div class="alert alert-{{msg.level_tag}}" role="alert">
                 {{msg.message}}
             </div>
-        </il>
+        </li>
         {% endfor %}
     </ul>
 
