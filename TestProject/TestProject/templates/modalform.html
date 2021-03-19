@@ -7,7 +7,13 @@
 <div>
     <h1>Modal Form Registration</h1>
 
-{{modalform}}
+    <form action="{% url 'modalform' %}" method="post">
+
+        {% csrf_token %}
+        {{modalform.as_p}}
+        <input type="submit" class="btn btn-success" value="Register">
+
+    </form>
 
 </div>
 

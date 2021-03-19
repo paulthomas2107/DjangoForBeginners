@@ -63,3 +63,13 @@ def modelform(request):
         "modalform": RegistrationModal
     }
     return render(request, 'modalform.html', context)
+
+
+def addModalForm(request):
+    mymodalform = RegistrationModal(request.POST)
+
+    if mymodalform.is_valid():
+        mymodalform.save()
+
+    return redirect('form')
+
