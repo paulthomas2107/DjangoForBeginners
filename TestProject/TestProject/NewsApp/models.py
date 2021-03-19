@@ -4,6 +4,27 @@ from django.utils import timezone
 # Create your models here.
 
 
+class Reporter(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    email = models.EmailField(max_length=50)
+
+    def __str__(self):
+        return self.first_name
+
+
+class Article2(models.Model):
+    headline = models.CharField(max_length=300)
+    pub_date = models.DateField()
+    reporter = models.ForeignKey(Reporter, on_delete=models.CASCADE),
+
+    def __str__(self):
+        return self.headline
+
+    class Meta:
+        ordering = ('headline',)
+
+
 class Publication(models.Model):
     title = models.CharField(max_length=30)
 
