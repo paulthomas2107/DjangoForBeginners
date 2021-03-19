@@ -4,6 +4,36 @@ from django.utils import timezone
 # Create your models here.
 
 
+class AnotherPlace(models.Model):
+    name = models.CharField(max_length=40)
+    address = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
+class AnotherRestaurant(AnotherPlace):
+    serves_pizza = models.BooleanField(default=False)
+    serves_tuna = models.BooleanField(default=False)
+
+
+class ContactInfo(models.Model):
+    name = models.CharField(max_length=40)
+    email = models.EmailField(max_length=40)
+    address = models.CharField(max_length=30)
+
+    class Meta:
+        abstract = True
+
+
+class Customer(ContactInfo):
+    phone = models.CharField(max_length=30)
+
+
+class Staff(ContactInfo):
+    position = models.CharField(max_length=30)
+
+
 class Article3(models.Model):
     title = models.CharField(max_length=30)
     body = models.TextField(max_length=300)
