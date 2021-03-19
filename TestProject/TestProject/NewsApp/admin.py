@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import News, SportsNews, RegistrationData, Publication, Article, Article2, Reporter, Place, Restaurant\
-    , Article3, Customer, Staff, AnotherPlace, AnotherRestaurant
+    , Article3, Customer, Staff, AnotherPlace, AnotherRestaurant, MyUser
 
 # Register your models here.
 admin.site.register(News)
@@ -17,4 +17,5 @@ admin.site.register(Customer)
 admin.site.register(Staff)
 admin.site.register(AnotherPlace)
 admin.site.register(AnotherRestaurant)
+admin.site.register(MyUser)
 

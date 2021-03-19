@@ -1,7 +1,17 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
+
+
+class MyUser(User):
+    class Meta:
+        ordering = ('username', )
+        proxy = True
+
+    def fullName(self):
+        return self.first_name + " " + self.last_name
 
 
 class AnotherPlace(models.Model):
